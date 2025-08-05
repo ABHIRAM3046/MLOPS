@@ -1,5 +1,5 @@
 pipeline{
-    agent python:'3.10'
+    agent any
     stages{
         stage("Train Model"){
             steps{
