@@ -8,11 +8,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app:mlops-diabetes
+      app: mlops-diabetes
   template:
     metadata:
       labels:
-        app:mlops-diabetes
+        app: mlops-diabetes
     spec:
       containers:
       - name: mlops-diabetes-pod
