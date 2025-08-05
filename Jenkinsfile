@@ -28,7 +28,7 @@ pipeline{
         }
         stage("Deploy to Kubernetes"){
             steps{
-                sh '''kubectl apply -f mlops-deployment.yml'''
+                sh '''kubectl apply -f mlops-deployment.yml --validate=false'''
             }
         }
     } 
