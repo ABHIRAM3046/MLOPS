@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlops-diabetes-deployment
+  labels:
+    app:mlops-diabetes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app:mlops-diabetes
+  template:
+    metadata:
+      labels:
+        app:mlops-diabetes
+    spec:
+      containers:
+      - name: mlops-diabetes-pod
+        image: abhiram3046/mlops-app:latest
+        ports:
+        - containerPort: 8000
+        imagepullpolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlops-diabetes-service
+spec:
+  selector:
+    app: mlops-diabetes
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+  type: LoadBalancer
+---
